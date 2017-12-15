@@ -44,9 +44,17 @@ public class Sonda_Espacial extends Naves_Espaciales{
         this.peso = peso;
     }
 
+    
+
     @Override
-    public String toString() {
-        return "Sonda_Espacial{" + "material=" + material + ", peso=" + peso + '}';
+    public double[] calcularTiempo() {
+        //0-ida;; 1-regreso
+        double ida = super.getPlaneta().getDistancia_tierra()/ this.velocidad;
+        double regreso = 9.8 * super.getVelocidad();
+        double [] tiempo = new double[2];
+        tiempo[0] =ida;
+        tiempo[1] = regreso;
+        return tiempo;
     }
     
     

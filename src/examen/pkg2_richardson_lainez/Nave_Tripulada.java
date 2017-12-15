@@ -51,9 +51,23 @@ public class Nave_Tripulada extends Naves_Espaciales{
         return this.astronautas.get(a);
     }
 
+    
+
     @Override
-    public String toString() {
-        return "Nave_Tripulada{" + "lugar_despeje=" + lugar_despeje + ", astronautas=" + astronautas + '}';
+    public double[] calcularTiempo() {
+        //0-ida;; 1-regreso
+        double pesos = 0;
+        for (Astronautas t : this.astronautas) {
+            pesos += t.getPeso();
+        }
+        
+        double ida = super.getPlaneta().getDistancia_tierra()/ (this.velocidad*((pesos*pesos)/100));
+        double regreso = super.getPlaneta().getDistancia_tierra()/ (this.velocidad*((pesos)/100));
+        
+        double [] tiempo = new double[2];
+        tiempo[0] =ida;
+        tiempo[1] = regreso;
+        return tiempo;
     }
     
     

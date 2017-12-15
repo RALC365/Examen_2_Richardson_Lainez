@@ -9,7 +9,7 @@ package examen.pkg2_richardson_lainez;
  *
  * @author RALC
  */
-public class Naves_Espaciales {
+public abstract class Naves_Espaciales {
     int serie;
     Planetas planeta;
     double velocidad;
@@ -49,8 +49,9 @@ public class Naves_Espaciales {
 
     @Override
     public String toString() {
-        return "Naves_Espaciales{" + "serie=" + serie + ", planeta=" + planeta + ", velocidad=" + velocidad + '}';
+        return serie+"";
     }
+    public abstract double [] calcularTiempo();
     
     
     
