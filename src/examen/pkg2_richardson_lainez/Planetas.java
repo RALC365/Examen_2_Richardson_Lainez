@@ -10,11 +10,11 @@ package examen.pkg2_richardson_lainez;
  * @author RALC
  */
 public class Planetas {
-    private String nombre; 
-    private int tem_media;
-    private boolean anillos;
-    private String tipo_superficie;
-    private int distancia_tierra;
+     String nombre; 
+     int tem_media;
+     boolean anillos;
+     String tipo_superficie;
+    int distancia_tierra;
 
     public Planetas() {
     }
@@ -69,7 +69,7 @@ public class Planetas {
 
     @Override
     public String toString() {
-        return "Planetas{" + "nombre=" + nombre + ", tem_media=" + tem_media + ", anillos=" + anillos + ", tipo_superficie=" + tipo_superficie + ", distancia_tierra=" + distancia_tierra + '}';
+        return nombre ;
     }
     
     

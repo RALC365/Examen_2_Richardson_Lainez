@@ -10,8 +10,8 @@ package examen.pkg2_richardson_lainez;
  * @author RALC
  */
 public class Sonda_Espacial extends Naves_Espaciales{
-    private String material;
-    private double peso;
+    String material;
+    double peso;
 
     public Sonda_Espacial() {
     }

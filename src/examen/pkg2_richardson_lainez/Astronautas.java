@@ -10,8 +10,8 @@ package examen.pkg2_richardson_lainez;
  * @author RALC
  */
 public class Astronautas {
-    private String nombre, nacionalidad, experiencia, sexo;
-    private double sueldo, peso;
+    String nombre, nacionalidad, experiencia, sexo;
+    double sueldo, peso;
 
     public Astronautas() {
     }
@@ -75,8 +75,10 @@ public class Astronautas {
 
     @Override
     public String toString() {
-        return "Astronautas{" + "nombre=" + nombre + ", nacionalidad=" + nacionalidad + ", experiencia=" + experiencia + ", sexo=" + sexo + ", sueldo=" + sueldo + ", peso=" + peso + '}';
+        return nombre;
     }
+
+    
     
     
 }

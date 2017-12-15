@@ -10,9 +10,9 @@ package examen.pkg2_richardson_lainez;
  * @author RALC
  */
 public class Naves_Espaciales {
-    private int serie;
-    private Planetas planeta;
-    private double velocidad;
+    int serie;
+    Planetas planeta;
+    double velocidad;
 
     public Naves_Espaciales() {
     }
