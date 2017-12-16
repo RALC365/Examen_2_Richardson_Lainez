@@ -21,11 +21,13 @@ public class Nave_Tripulada extends Naves_Espaciales {
 
     public Nave_Tripulada(Planetas lugar_despeje) {
         this.lugar_despeje = lugar_despeje;
+        astronautas = new ArrayList();
     }
 
     public Nave_Tripulada(Planetas lugar_despeje, int serie, Planetas planeta, double velocidad) {
         super(serie, planeta, velocidad);
         this.lugar_despeje = lugar_despeje;
+        astronautas = new ArrayList();
     }
 
     public Planetas getLugar_despeje() {
