@@ -5,6 +5,7 @@
  */
 package examen.pkg2_richardson_lainez;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -13,13 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author RALC
  */
-public class Expedicion extends Thread{
+public class Expedicion extends Thread implements Serializable {
     Naves_Espaciales nave;
     Planetas planeta_destino;
     int tiempo_ida;
     int tiempo_regreso;
     boolean vive;
     boolean avanzar;
+    private static final long SerialVersionUID = 777L;
     
 
     public Expedicion(Naves_Espaciales nave, Planetas planeta_destino) {
@@ -78,6 +80,10 @@ public class Expedicion extends Thread{
                 }
                 if (tiempo_regreso ==0) {
                     JOptionPane.showConfirmDialog(null, "La nave ha regresado a casa");
+                    try {
+                        Thread.sleep(1000000000);
+                    } catch (Exception e) {
+                    }
                 }
             }
             try {

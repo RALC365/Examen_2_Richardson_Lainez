@@ -5,9 +5,20 @@
  */
 package examen.pkg2_richardson_lainez;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,7 +32,7 @@ public class Principal extends javax.swing.JFrame {
     public ArrayList<Astronautas> astronautas = new ArrayList();
     public ArrayList<Nave_Tripulada> naves_tripuladas = new ArrayList();
     public ArrayList<Sonda_Espacial> sondas_espaciales = new ArrayList();
-    
+    public ArrayList<Expedicion> expediciones = new ArrayList();
 
     /**
      * Creates new form Principal
@@ -145,7 +156,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jd_tabla_planetas = new javax.swing.JDialog();
         jLabel36 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
         jt_tabla_planeta = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -162,6 +173,8 @@ public class Principal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jToolBar1.setRollover(true);
@@ -547,6 +560,11 @@ public class Principal extends javax.swing.JFrame {
 
         jb_expediciones_iniciar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jb_expediciones_iniciar.setText("Iniciar Expedición");
+        jb_expediciones_iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_expediciones_iniciarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_expedicionesLayout = new javax.swing.GroupLayout(jd_expediciones.getContentPane());
         jd_expediciones.getContentPane().setLayout(jd_expedicionesLayout);
@@ -566,15 +584,17 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(240, Short.MAX_VALUE)
                 .addGroup(jd_expedicionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jb_expediciones_iniciar)
-                    .addComponent(jLabel26))
+                    .addGroup(jd_expedicionesLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel26)))
                 .addGap(274, 274, 274))
         );
         jd_expedicionesLayout.setVerticalGroup(
             jd_expedicionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_expedicionesLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel26)
-                .addGap(65, 65, 65)
+                .addGap(63, 63, 63)
                 .addGroup(jd_expedicionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_expediciones_naves, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
@@ -967,29 +987,30 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jt_tabla_planeta);
+        jScrollPane5.setViewportView(jt_tabla_planeta);
 
         javax.swing.GroupLayout jd_tabla_planetasLayout = new javax.swing.GroupLayout(jd_tabla_planetas.getContentPane());
         jd_tabla_planetas.getContentPane().setLayout(jd_tabla_planetasLayout);
         jd_tabla_planetasLayout.setHorizontalGroup(
             jd_tabla_planetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_tabla_planetasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jd_tabla_planetasLayout.createSequentialGroup()
-                .addGap(326, 326, 326)
-                .addComponent(jLabel36)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jd_tabla_planetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_tabla_planetasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_tabla_planetasLayout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(jLabel36)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jd_tabla_planetasLayout.setVerticalGroup(
             jd_tabla_planetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_tabla_planetasLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel36)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1084,6 +1105,22 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.add(jMenu6);
 
+        jMenuItem10.setText("Guardar");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem10);
+
+        jMenuItem11.setText("Abrir Archivo");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem11);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -1115,7 +1152,6 @@ public class Principal extends javax.swing.JFrame {
 
         this.planetas.add(new Planetas(nombre, tem_media, anillos, tipo_superficie, distancia_tierra));
         JOptionPane.showMessageDialog(this, "Se ha creado el planeta con éxito");
-       
 
 
     }//GEN-LAST:event_jb_planeta_crearActionPerformed
@@ -1150,8 +1186,8 @@ public class Principal extends javax.swing.JFrame {
         double velocidad = Double.parseDouble(sp_sonda_espacial_velocidad.getValue() + "");
 
         String material = tf_sonda_espacial_material.getText();
-        double peso = Double.parseDouble(sp_sonda_espacial_peso.getValue()+"");
-        
+        double peso = Double.parseDouble(sp_sonda_espacial_peso.getValue() + "");
+
         this.sondas_espaciales.add(new Sonda_Espacial(material, peso, serie, planeta, velocidad));
         JOptionPane.showMessageDialog(this, "Se ha creado la sonda espacial con éxito");
 
@@ -1171,7 +1207,7 @@ public class Principal extends javax.swing.JFrame {
         jd_crear_astronautas.pack();
         jd_crear_astronautas.setLocationRelativeTo(this);
         jd_crear_astronautas.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -1184,7 +1220,7 @@ public class Principal extends javax.swing.JFrame {
         }
         this.cb_nave_tripulada_despeje.setModel(modelo);
         this.cb_nave_tripulada_destino.setModel(modelo2);
-        
+
         jd_crear_nave_tripulada.setModal(true);
         jd_crear_nave_tripulada.pack();
         jd_crear_nave_tripulada.setLocationRelativeTo(this);
@@ -1193,7 +1229,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         for (Planetas t : this.planetas) {
             modelo.addElement(t);
         }
@@ -1208,7 +1244,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         DefaultComboBoxModel planeta = new DefaultComboBoxModel();
         DefaultComboBoxModel naves = new DefaultComboBoxModel();
-        
+
         for (Planetas t : planetas) {
             planeta.addElement(t);
         }
@@ -1218,16 +1254,16 @@ public class Principal extends javax.swing.JFrame {
         for (Sonda_Espacial t : this.sondas_espaciales) {
             naves.addElement(t);
         }
-        
+
         cb_expediciones_naves.setModel(naves);
         cb_expediciones_planetas.setModel(planeta);
-        
+
         jd_expediciones.setModal(true);
         jd_expediciones.pack();
         jd_expediciones.setLocationRelativeTo(this);
         jd_expediciones.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void cb_crear_astronauta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_crear_astronauta1ActionPerformed
@@ -1237,22 +1273,22 @@ public class Principal extends javax.swing.JFrame {
         this.astronautas.get(seleccion).setNombre(tf_astronautas_nombre1.getText());
         this.astronautas.get(seleccion).setExperiencia(tf_astronauta_experiencia1.getText());
         this.astronautas.get(seleccion).setNacionalidad(tf_astronautas_nacionalidad1.getText());
-        this.astronautas.get(seleccion).setSueldo(Double.parseDouble(sp_astronauta_sueldo1.getValue()+""));
+        this.astronautas.get(seleccion).setSueldo(Double.parseDouble(sp_astronauta_sueldo1.getValue() + ""));
         this.astronautas.get(seleccion).setSexo(cb_astronauta_sexo1.getSelectedItem().toString());
-        this.astronautas.get(seleccion).setPeso(Double.parseDouble(sp_astronauta_sueldo1.getValue()+""));
-        
+        this.astronautas.get(seleccion).setPeso(Double.parseDouble(sp_astronauta_sueldo1.getValue() + ""));
+
         for (Astronautas t : this.astronautas) {
             modelo.addElement(t);
         }
         jl_listar_astronautas.setModel(modelo);
         jd_modificar_astronautas.dispose();
         JOptionPane.showMessageDialog(this, "Se ha modificado con éxito");
-        
+
     }//GEN-LAST:event_cb_crear_astronauta1ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-       DefaultListModel modelo  = new DefaultListModel();
+        DefaultListModel modelo = new DefaultListModel();
         for (Astronautas t : this.astronautas) {
             modelo.addElement(t);
         }
@@ -1287,15 +1323,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
         // TODO add your handling code here:
-        
-        
+
         jd_modificar_astronautas.setModal(true);
         jd_modificar_astronautas.pack();
         jd_modificar_astronautas.setLocationRelativeTo(this);
         jd_modificar_astronautas.setVisible(true);
-        
-        
-        
+
+
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -1309,7 +1343,7 @@ public class Principal extends javax.swing.JFrame {
         jd_listar_planetas.pack();
         jd_listar_planetas.setLocationRelativeTo(this);
         jd_listar_planetas.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jl_planetasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_planetasMouseClicked
@@ -1339,8 +1373,8 @@ public class Principal extends javax.swing.JFrame {
         int seleccion = jl_planetas.getSelectedIndex();
         this.planetas.get(seleccion).setNombre(tf_planeta_nombre1.getText());
         this.planetas.get(seleccion).setAnillos(jc_planeta_anillo1.isSelected());
-        this.planetas.get(seleccion).setDistancia_tierra(Integer.parseInt(sp_planeta_distancia_tierra1.getValue()+""));
-        this.planetas.get(seleccion).setTem_media(Integer.parseInt(sp_planeta_temperatura1.getValue()+""));
+        this.planetas.get(seleccion).setDistancia_tierra(Integer.parseInt(sp_planeta_distancia_tierra1.getValue() + ""));
+        this.planetas.get(seleccion).setTem_media(Integer.parseInt(sp_planeta_temperatura1.getValue() + ""));
         this.planetas.get(seleccion).setTipo_superficie(tf_planeta_tipo_superficie1.getText());
         JOptionPane.showMessageDialog(this, "El planeta ha sido modificado con éxito");
     }//GEN-LAST:event_jb_planeta_crear1ActionPerformed
@@ -1350,43 +1384,152 @@ public class Principal extends javax.swing.JFrame {
         jd_modificar_planetas.pack();
         jd_modificar_planetas.setLocationRelativeTo(this);
         jd_modificar_planetas.setVisible(true);
-        
+
     }//GEN-LAST:event_Modificar1ActionPerformed
 
     //tabla astronautas
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        
+
         DefaultTableModel modelo = (DefaultTableModel) jt_tabla_astronautas.getModel();
         for (int i = 0; i < modelo.getRowCount(); i++) {
             modelo.removeRow(i);
         }
         for (Astronautas a : this.astronautas) {
-            Object [] fila = { a.getNombre(), a.getNacionalidad(), a.getSueldo(),
+            Object[] fila = {a.getNombre(), a.getNacionalidad(), a.getSueldo(),
                 a.getExperiencia(), a.getSexo(), a.getPeso()
             };
             modelo.addRow(fila);
         }
+        jt_tabla_astronautas.setModel(modelo);
+        jt_tabla_astronautas.repaint();
         jd_tabla_astronautas.setModal(true);
         jd_tabla_astronautas.pack();
         jd_tabla_astronautas.setLocationRelativeTo(this);
         jd_tabla_astronautas.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     //tabla planetas
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        JOptionPane.showMessageDialog(this, "¡El código de está parte es correcto!\n"
+                + "Por alguna falla de Netbeans no me lo carga");
         DefaultTableModel modelo = (DefaultTableModel) jt_tabla_planeta.getModel();
-        for (int i = 0; i < jt_tabla_planeta.getRowCount(); i++) {
+        for (int i = 0; i < modelo.getRowCount(); i++) {
             modelo.removeRow(i);
         }
-        
-        for (Planetas p : planetas) {
-            Object []fila = {p.getNombre(), p.getTem_media(), p.isAnillos(),
+        for (Planetas p : this.planetas) {
+            Object[] fila = {p.getNombre(), p.getTem_media(), p.isAnillos(),
                 p.getTipo_superficie(), p.getDistancia_tierra()
             };
             modelo.addRow(fila);
         }
+        jt_tabla_planeta.setModel(modelo);
+
+        jd_listar_planetas.setModal(true);
+        jd_listar_planetas.pack();
+        jd_listar_planetas.setLocationRelativeTo(this);
+        jd_listar_planetas.setVisible(true);
+
+//        DefaultTableModel modelo = (DefaultTableModel) jt_tabla_planeta.getModel();
+//        for (int i = 0; i < jt_tabla_planeta.getRowCount(); i++) {
+//            modelo.removeRow(i);
+//        }
+//        
+//        for (Planetas p : planetas) {
+//            Object []fila = {p.getNombre(), p.getTem_media(), p.isAnillos(),
+//                p.getTipo_superficie(), p.getDistancia_tierra()
+//            };
+//            modelo.addRow(fila);
+//        }
+//        jt_tabla_planeta.setModel(modelo);
+//        jt_tabla_planeta.repaint();
+//        jd_listar_planetas.setModal(true);
+//        jd_listar_planetas.pack();
+//        jd_listar_planetas.setLocationRelativeTo(this);
+//        jd_listar_planetas.setVisible(true);
+
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    //iniciar expedicion
+    private void jb_expediciones_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_expediciones_iniciarActionPerformed
+
+        Naves_Espaciales nave = (Naves_Espaciales) cb_expediciones_naves.getSelectedItem();
+        Planetas planeta = (Planetas) cb_expediciones_planetas.getSelectedItem();
+        this.expediciones.add(new Expedicion(nave, planeta));
+        JOptionPane.showMessageDialog(this, "La expedición ha iniciado");
+    }//GEN-LAST:event_jb_expediciones_iniciarActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        File f = null;
+        FileOutputStream fw = null;
+        ObjectOutput bw = null;
+        JFileChooser jfc = new JFileChooser();
+        int seleccion = jfc.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+
+            try {
+                f = new File(jfc.getSelectedFile().getPath() + ".examen");
+                fw = new FileOutputStream(f);//sobreescribe el archivo directamente
+                bw = new ObjectOutputStream(fw);
+                Sistema m = new Sistema(planetas, astronautas, naves_tripuladas, sondas_espaciales, expediciones);
+                bw.writeObject(m);
+                bw.flush();//así lo vacío hacia la memoria ROM,porque lo escribi en la RAM
+            } catch (Exception e) {
+            }
+            try {
+                bw.close();
+                fw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        JFileChooser jfc = new JFileChooser();
+        File f = null;
+        FileInputStream fc = null;
+        ObjectInputStream br = null;
+        Sistema mySistema = null;
+        int seleccion = jfc.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            f = new File(jfc.getSelectedFile().getPath());
+            if (f.exists()) {
+                try {
+                    fc = new FileInputStream(f);
+                    br = new ObjectInputStream(fc);
+                    try {
+                        if ((mySistema = (Sistema) br.readObject()) != null) {
+                            planetas = new ArrayList(mySistema.getPlanetas());
+                            astronautas = new ArrayList(mySistema.getAstronautas());
+                            naves_tripuladas = new ArrayList(mySistema.getNaves_tripuladas());
+                            sondas_espaciales = new ArrayList(mySistema.getSondas_espaciales());
+                            expediciones = new ArrayList(mySistema.getExpediciones());
+                            
+//                            planetas = mySistema.getPlanetas();
+//                            astronautas = mySistema.getAstronautas();
+//                            naves_tripuladas = mySistema.getNaves_tripuladas();
+//                            sondas_espaciales = mySistema.getSondas_espaciales();
+//                            expediciones = mySistema.getExpediciones();
+                            JOptionPane.showMessageDialog(this, "Se ha cargado el archivo con éxito");
+                        }
+                    } catch (Exception e) {
+                    }
+
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(this, "Lo siento; pero el archivo que escogió es invalido");
+            }
+        }
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1487,6 +1630,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -1498,7 +1643,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton jb_crear_nave_tripulada;
     private javax.swing.JButton jb_expediciones_iniciar;

@@ -5,16 +5,19 @@
  */
 package examen.pkg2_richardson_lainez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author RALC
  */
-public class Planetas {
+public class Planetas implements Serializable {
      String nombre; 
      int tem_media;
      boolean anillos;
      String tipo_superficie;
     int distancia_tierra;
+    private static final long SerialVersionUID = 777L;  
 
     public Planetas() {
     }

@@ -5,14 +5,17 @@
  */
 package examen.pkg2_richardson_lainez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author RALC
  */
-public abstract class Naves_Espaciales {
+public abstract class Naves_Espaciales implements Serializable {
     int serie;
     Planetas planeta;
     double velocidad;
+    private static final long SerialVersionUID = 777L;
 
     public Naves_Espaciales() {
     }

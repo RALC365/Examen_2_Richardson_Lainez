@@ -5,13 +5,16 @@
  */
 package examen.pkg2_richardson_lainez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author RALC
  */
-public class Astronautas {
+public class Astronautas implements Serializable {
     String nombre, nacionalidad, experiencia, sexo;
     double sueldo, peso;
+    private static final long SerialVersionUID = 777L;
 
     public Astronautas() {
     }
